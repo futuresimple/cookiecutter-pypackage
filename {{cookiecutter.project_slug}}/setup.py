@@ -5,12 +5,6 @@
 
 from setuptools import setup, find_packages
 
-with open('README.rst') as readme_file:
-    readme = readme_file.read()
-
-with open('HISTORY.rst') as history_file:
-    history = history_file.read()
-
 requirements = [
     {%- if cookiecutter.command_line_interface|lower == 'click' %}
     'Click>=6.0',
@@ -19,16 +13,12 @@ requirements = [
 ]
 
 setup_requirements = [
-{%- if cookiecutter.use_pytest == 'y' %}
     'pytest-runner',
-{%- endif %}
     # TODO({{ cookiecutter.github_username }}): put setup requirements (distutils extensions, etc.) here
 ]
 
 test_requirements = [
-{%- if cookiecutter.use_pytest == 'y' %}
     'pytest',
-{%- endif %}
     # TODO: put package test requirements here
 ]
 
@@ -70,9 +60,6 @@ setup(
         '{{ license_classifiers[cookiecutter.open_source_license] }}',
 {%- endif %}
         'Natural Language :: English',
-        "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
